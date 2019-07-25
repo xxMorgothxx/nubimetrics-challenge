@@ -8,7 +8,11 @@
       // Pages
       "@products-nubimetrics/*": ["src/app/pages/products-management/*"],
       // Shared models
-      "@models-nubimetrics/*": ["src/app/shared/models/*"]
+      "@models-nubimetrics/*": ["src/app/shared/models/*"],
+      // Pipes models
+      "@pipes-nubimetrics/*": ["src/app/shared/pipes/*"],
+      // Shared resources
+      "@products-nbm-nubimetrics/*": ["src/app/shared/resources/products-nbm/*"]
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,

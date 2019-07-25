@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// Pipes modules
+import { PipesModule } from '@pipes-nubimetrics/pipes.module';
+
 // Components
 import { ProductCardComponent } from './components/cards/product-card/product-card.component';
 import { ProductCardListComponent } from './components/lists/product-card-list/product-card-list.component';
@@ -11,10 +14,11 @@ import { ProductCardListComponent } from './components/lists/product-card-list/p
     ProductCardListComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PipesModule
   ],
   exports: [
-    ProductCardListComponent
+    ProductCardComponent
   ]
 })
 export class ProductsNbmModule { }
