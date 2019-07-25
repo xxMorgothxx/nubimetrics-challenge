@@ -1,0 +1,10 @@
+@import "src/app/theme/styles/variables";
+
+:host {
+    .navbar {
+        background-color: $background-color;
+        button {
+            color: #fff;
+        }
+    }
+}
