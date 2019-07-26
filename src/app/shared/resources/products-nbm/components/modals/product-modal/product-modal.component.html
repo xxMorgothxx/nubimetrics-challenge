@@ -1,0 +1,42 @@
+<!--******************************************************************************* -->
+<!-- Modal que muestra una información más detallada del producto -->
+<!--******************************************************************************* -->
+<div class="modal-header background-dark">
+  <img class="product-image border-white img-selected" [src]="product.thumbnail" />
+  <h4 class="modal-title font-title title text-center">{{product.title}}</h4>
+</div>
+<div class="modal-body">
+  <div class="container text-center">
+    <div class="row footer">
+      <div class="col-sm product">
+        <div *ngIf="product.site_id" class="info-class">
+          <h4 class="text-muted">Sitio</h4>
+          <p class="font-title">{{product.site_id | sites}}</p>
+        </div>
+
+        <div *ngIf="product.initial_quantity" class="info-class">
+          <h4 class="text-muted">Cantidad inicial</h4>
+          <p class="font-title">{{product.initial_quantity}}</p>
+        </div>
+      </div>
+      <div class="col-sm">
+
+        <div *ngIf="product.base_price" class="info-class">
+          <h4 class="text-muted">Precio base</h4>
+          <p class="font-title">{{product.base_price | currency:'ARS'}}</p>
+        </div>
+
+        <div *ngIf="product.warranty" class="info-class">
+          <h4 class="text-muted">Garantía</h4>
+          <p class="font-title">{{product.warranty}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-primary" (click)="activeModal.close('Close click')">Cerrar</button>
+</div>
+<!--******************************************************************************* -->
+<!-- END Modal que muestra una información más detallada del producto -->
+<!--******************************************************************************* -->

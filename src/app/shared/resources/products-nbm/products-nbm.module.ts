@@ -6,19 +6,20 @@ import { PipesModule } from '@pipes-nubimetrics/pipes.module';
 
 // Components
 import { ProductCardComponent } from './components/cards/product-card/product-card.component';
-import { ProductCardListComponent } from './components/lists/product-card-list/product-card-list.component';
+import { ProductModalComponent } from './components/modals/product-modal/product-modal.component';
 
 @NgModule({
   declarations: [
     ProductCardComponent,
-    ProductCardListComponent
+    ProductModalComponent
   ],
   imports: [
     CommonModule,
     PipesModule
   ],
   exports: [
-    ProductCardComponent
+    ProductCardComponent,
+    ProductModalComponent
   ]
 })
 export class ProductsNbmModule { }

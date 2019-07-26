@@ -1,4 +1,5 @@
 export class Product {
+  id: string;
   title: string;
   thumbnail: string;
   price: number;
@@ -13,6 +14,7 @@ export class Product {
   warranty: string;
 
   constructor(data: {
+    id?: string;
     title?: string;
     thumbnail?: string;
     price?: number;
@@ -26,6 +28,7 @@ export class Product {
     base_price?: number;
     warranty?: string;
   }) {
+    this.id = data.id || undefined;
     this.title = data.title || undefined;
     this.thumbnail = data.thumbnail || undefined;
     this.price = data.price || undefined;

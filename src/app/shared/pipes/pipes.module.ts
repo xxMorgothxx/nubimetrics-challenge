@@ -4,20 +4,21 @@ import { CommonModule } from '@angular/common';
 // Pipes
 import { ConditionPipe } from './condition-pipe/condition.pipe';
 import { ListingTypePipe } from './listing-type-tipe/listing-type.pipe';
-
-// Own pipes
+import { SitesPipe } from './sites-pipe/sites.pipe';
 
 @NgModule({
   declarations: [
     ConditionPipe,
-    ListingTypePipe
+    ListingTypePipe,
+    SitesPipe
   ],
   imports: [
     CommonModule
   ],
   exports: [
     ConditionPipe,
-    ListingTypePipe
+    ListingTypePipe,
+    SitesPipe
   ]
 })
 export class PipesModule { }

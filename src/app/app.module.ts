@@ -12,13 +12,16 @@ registerLocaleData(localeEs, 'es-AR');
 // External modules
 import { ToastrModule } from "ngx-toastr";
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // Own modules
 import { CoreModule } from '@core-nubimetrics/core.module';
+import { ProductsNbmModule } from '@products-nbm-nubimetrics/products-nbm.module';
 
 // Components
 import { AppComponent } from './app.component';
 import { PagesComponent } from './pages/pages.component';
+import { ProductModalComponent } from '@products-nbm-nubimetrics/components/modals/product-modal/product-modal.component';
 
 @NgModule({
   declarations: [
@@ -30,17 +33,22 @@ import { PagesComponent } from './pages/pages.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    NgbModule,
     LoadingBarHttpClientModule,
     ToastrModule.forRoot({
       timeOut: 1000,
       positionClass: 'toast-top-right',
       preventDuplicates: false
     }),
-    CoreModule
+    CoreModule,
+    ProductsNbmModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'es-AR' }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    ProductModalComponent
+  ]
 })
 export class AppModule { }

@@ -33,4 +33,12 @@ export class ProductsService {
       .pipe(map(response => response.results));
   }
 
+  /**
+   * Obtiene la información de un producto dado su id
+   * @param idProduct Producto seleccionado
+   */
+  findOneProductById(idProduct: string): Observable<Product> {
+    return this.http.get<Product>(`${URLs.items}/${idProduct}`);
+  }
+
 }

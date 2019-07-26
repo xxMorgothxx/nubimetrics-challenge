@@ -6,11 +6,12 @@
   <div class="content-product text-center">
     <div class="product">
       <img class="product-image border-white img-selected" [src]="product.thumbnail" />
-      <h5 class="font-title text-muted selected">{{product.title}}<br />
+      <h5 class="font-title text-muted selected" (click)="openInfoProduct()">{{product.title}}<br />
       </h5>
     </div>
     <h3 class="font-title price">{{product.price | currency:'ARS'}}</h3>
-    <p class="text-center">
+    <p class="column text-center">
+      <small>Exposición del artículo: </small>
       <span class="badge badge-primary">{{product.listing_type_id | listingType | titlecase}}</span>
     </p>
   </div>
