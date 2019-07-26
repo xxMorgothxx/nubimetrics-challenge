@@ -1,0 +1,10 @@
+@import "src/app/theme/styles/variables";
+
+.inner-content {
+    position: absolute;
+    top:$header-height;
+    bottom:0;
+    left:0;
+    right:0;  
+    min-height: calc(100% - (#{$header-height} + #{$inner-content-padding}*2 + 75px));
+}

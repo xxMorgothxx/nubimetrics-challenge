@@ -1,0 +1,49 @@
+@import "src/app/theme/styles/variables";
+
+.fixed-inner-content{
+    
+    .fixed-lateral {
+        position: fixed;
+        top: calc((#{$header-height} + 20px));
+        left: 0;
+        width: 250px;
+        height: calc(100% - (#{$header-height} + #{$inner-content-padding}*2 + 75px));
+        z-index: 0;
+    }
+
+    // Extra small devices (portrait phones, less than 576px)
+    @media (max-width: 575px) { 
+        .show-lateral-option{
+            display: none;
+        }
+    }
+
+    // Small devices (landscape phones, 576px and up)
+    @media (min-width: 576px) and (max-width: 767px) { 
+        .show-lateral-option{
+            display: none;
+        }
+    }
+
+    // Medium devices (tablets, 768px and up)
+    @media (min-width: 768px) and (max-width: 991px) { 
+        .show-lateral-option{
+            display: none;
+        }
+    }
+
+    // Large devices (desktops, 992px and up)
+    @media (min-width: 992px) and (max-width: 1199px) { 
+        .show-mobile-option {
+            display: none;
+        }
+    }
+
+    // Extra large devices (large desktops, 1200px and up)
+    @media (min-width: 1200px) { 
+        .show-mobile-option {
+            display: none;
+        }
+    }
+
+}

@@ -11,12 +11,18 @@ import { Product } from '@products-nubimetrics/models/product.model';
 
 @Component({
   selector: 'nubimetrics-search-product-view',
-  templateUrl: './search-product-view.component.html'
+  templateUrl: './search-product-view.component.html',
+  styleUrls: ['.//search-product-view.component.scss']
 })
 export class SearchProductViewComponent implements OnInit {
 
   products: Product[] = [];
+  productsShort: Product[] = [];
   showNotResults = false;
+  searchText = sessionStorage.getItem('last_text');
+
+  pageSize = 20;
+
   constructor(
     private productService: ProductsService,
     private toastrService: ToastrService
@@ -38,9 +44,26 @@ export class SearchProductViewComponent implements OnInit {
     this.productService.getAllProducts(product)
       .subscribe(products => {
         this.products = products;
+        this.productsShort = this.products;
         (this.products.length) ? this.showNotResults = false : this.showNotResults = true;
       },
         err => this.toastrService.error('Ocurrió un error al obtener los productos de Mercado Libre', 'Error en el servidor'));
+  }
+
+  /**
+   * Asigna los productos que cumplan con las ordenaciones y filtros elegidas
+   * por el usuario
+   * @param products productos
+   */
+  getProductsShort(products: Product[]) {
+    if (products.length == this.products.length)
+      this.products = products;
+    if (products.length) {
+      this.productsShort = products;
+    } else {
+      this.productsShort = this.products;
+    }
+
   }
 
 }

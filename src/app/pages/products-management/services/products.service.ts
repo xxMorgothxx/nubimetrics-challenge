@@ -59,4 +59,94 @@ export class ProductsService {
     return this.http.get<Product>(`${URLs.items}/${idProduct}`);
   }
 
+  /**
+   * Devuelve los productos que complen con la condición
+   * @param condition Condición 'new', 'used'
+   * @param products Productos a filtrar
+   */
+  getAllProductsByCondition(condition: string, products: Product[]): Observable<Product[]> {
+    return of(products).pipe(map(products => {
+      let productsByCondition: Product[] = [];
+      products.forEach(x => {
+        if (x.condition == condition) {
+          productsByCondition.push(x);
+        }
+      });
+      return productsByCondition;
+    }));
+  }
+
+  /**
+   * Ordena los productos ascendente o descendente de acuerdo a la selección
+   * del usuario
+   * @param order tipo de ordenacion
+   * @param products Productos a ordenar
+   */
+  orderProductsByPrice(order: string, products: Product[]): Observable<Product[]> {
+    return of(products).pipe(map(products => {
+      return products.sort((a: Product, b: Product) => {
+        let comparison = 0;
+        if (order == 'desc') {
+          if (a.price >= b.price) {
+            comparison = 1;
+          } else {
+            comparison = -1;
+          }
+        } else {
+          if (a.price < b.price) {
+            comparison = 1;
+          } else {
+            comparison = -1;
+          }
+        }
+        return comparison;
+      })
+    }));
+  }
+
+  /**
+   * Ordena todos los productos por la cantidad de ventas
+   * @param order Tipo de ordenacion
+   * @param products Productos a ordenar
+   */
+  orderProductsBySoldQuantity(order: string, products: Product[]): Observable<Product[]> {
+    return of(products).pipe(map(products => {
+      return products.sort((a: Product, b: Product) => {
+        let comparison = 0;
+        if (order == 'ascendente') {
+          if (a.sold_quantity >= b.sold_quantity) {
+            comparison = 1;
+          } else {
+            comparison = -1;
+          }
+        } else {
+          if (a.price < b.price) {
+            comparison = 1;
+          } else {
+            comparison = -1;
+          }
+        }
+        return comparison;
+      })
+    }));
+  }
+
+  /**
+   * Filtra los productos entre precio ingresado por el usuario
+   * @param min precio minimo
+   * @param max precio maximo
+   * @param products productos
+   */
+  filterProductsBetweenPrices(min: number, max: number, products: Product[]): Observable<Product[]> {
+    return of(products).pipe(map(products => {
+      let productsBetweenPrices: Product[] = [];
+      products.forEach(x => {
+        if (x.price >= min && x.price <= max) {
+          productsBetweenPrices.push(x);
+        }
+      });
+      return productsBetweenPrices;
+    }));
+  }
+
 }

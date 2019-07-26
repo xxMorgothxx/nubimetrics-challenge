@@ -1,8 +1,8 @@
 <!--******************************************************************************* -->
 <!-- Listado de los productos referentes a la búsqueda del usuario -->
 <!--******************************************************************************* -->
-<div class="card-columns pt-10">
-  <div *ngFor="let product of products | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+<div class="row pt-10">
+  <div *ngFor="let product of products | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize" class="col-xl-3 col-md-4 col-sm-6 pt-10">
     <nubimetrics-product-card [product]="product"></nubimetrics-product-card>
   </div>
 </div>

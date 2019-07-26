@@ -1,0 +1,59 @@
+<!--******************************************************************************* -->
+<!-- Opciones de filtro para los resultados obtenidos -->
+<!--******************************************************************************* -->
+<div class="p-title text-center">
+    <h5 class="font-title title-size">Ordenar y filtrar resultados</h5>
+</div>
+<div class="row">
+    <div class="col-6 col-xl-12 form-group">
+        <small class="text-muted">Items por página</small>
+        <select class="form-control form-control-sm" [(ngModel)]="pageSize" (change)="emitPageSize()">
+            <option value="8">8</option>
+            <option value="12">12</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select>
+    </div>
+    <div class="col-6 col-xl-12 form-group">
+        <small class="text-muted">Condición de búsqueda</small>
+        <select class="form-control form-control-sm" (change)="filterByCondition(selectCondition.value)"
+            #selectCondition>
+            <option value="all">Todos</option>
+            <option value="new">Nuevo</option>
+            <option value="used">Usado</option>
+        </select>
+    </div>
+</div>
+<div class="form-group">
+    <small class="text-muted">Cantidades vendidas</small>
+    <select class="form-control form-control-sm" (change)="orderBySoldQuantity(orderSoldQuantity.value)"
+        #orderSoldQuantity>
+        <option selected>Seleccione</option>
+        <option value="ascendente">Ascendente</option>
+        <option value="descendente">Descendente</option>
+    </select>
+</div>
+<div class="form-group">
+    <small class="text-muted">Ordenar por precio</small>
+    <select class="form-control form-control-sm" (change)="orderByPrice(order.value)" #order>
+        <option selected>Seleccione</option>
+        <option value="desc">Menor precio</option>
+        <option value="asc">Mayor precio</option>
+    </select>
+</div>
+<small class="text-muted">Filtrar por rango de precio</small>
+<div class="row">
+    <div class="col-6">
+        <input [(ngModel)]="min" class="form-control form-control-sm" type="number" placeholder="Mínimo">
+    </div>
+    <div class="col-6">
+        <input [(ngModel)]="max" class="form-control form-control-sm" type="number" placeholder="Máximo">
+    </div>
+</div>
+<div *ngIf="min && max && max >= min" class="text-center pt-10">
+    <button type="button" class="btn btn-primary btn-sm" (click)="filterBetweenPrices()">Buscar por rango</button>
+</div>
+<!--******************************************************************************* -->
+<!-- END Opciones de filtro para los resultados obtenidos -->
+<!--******************************************************************************* -->

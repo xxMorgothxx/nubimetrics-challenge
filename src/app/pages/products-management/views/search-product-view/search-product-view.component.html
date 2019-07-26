@@ -1,14 +1,38 @@
 <!--******************************************************************************* -->
 <!-- Página para la búsqueda de productos de mercado libre -->
 <!--******************************************************************************* -->
-<nubimetrics-search-input-form placeholder="Buscar productos de Mercado Libre..." (text)="searchProduct($event)"></nubimetrics-search-input-form>
-<nubimetrics-products-list [products]="products"></nubimetrics-products-list>
-<div *ngIf="showNotResults" class="alert alert-info text-center" role="alert">
-    <h3 class="font-title">No se encontraron resultados que coincidan con su búsqueda</h3>
-    <div class="pt-10">
-        <p>Verifica que las palabras ingresadas estén escritas correctamente</p>
+<div class="row fixed-inner-content">
+    <div class="col-2 show-lateral-option">
+        <div class="col fixed-lateral">
+            <h4 class="title font-title m-0">{{searchText}}</h4>
+            <div class="text-right">
+                <small class="text-muted">{{products.length}} resultados</small>
+            </div>
+            <nubimetrics-filters-product-view [products]="products" [productsShort]="productsShort" (resultProducts)="getProductsShort($event)"
+                (pageSize)="pageSize = $event"></nubimetrics-filters-product-view>
+        </div>
+    </div>
+    <div class="col-xl-10 col-sm-12">
+        <nubimetrics-search-input-form placeholder="Buscar productos de Mercado Libre..." (text)="searchProduct($event)"></nubimetrics-search-input-form>
+        <div class="col show-mobile-option">
+            <h5 class="title font-title m-0">{{searchText}}</h5>
+            <div class="text-right">
+                <small class="text-muted">{{products.length}} resultados</small>
+            </div>
+            <nubimetrics-filters-product-view [products]="products" [productsShort]="productsShort" (resultProducts)="getProductsShort($event)"
+                (pageSize)="pageSize = $event"></nubimetrics-filters-product-view>
+        </div>
+        <nubimetrics-products-list [products]="productsShort" [pageSize]="pageSize"></nubimetrics-products-list>
+        <div *ngIf="showNotResults" class="alert alert-info text-center" role="alert">
+            <h3 class="font-title">No se encontraron resultados que coincidan con su búsqueda</h3>
+            <div class="pt-10">
+                <p>Verifica que las palabras ingresadas estén escritas correctamente</p>
+            </div>
+        </div>
     </div>
 </div>
+
+
 <!--******************************************************************************* -->
 <!-- END Página para la búsqueda de productos de mercado libre -->
 <!--******************************************************************************* -->
