@@ -1,27 +1,30 @@
 # NubimetricsChallenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.2.
+Proyecto realizado en Angular 8 y bootstrap 4
 
-## Development server
+## Demo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Puede visualizar la demo de la aplicación en
+`https://xxmorgothxx.github.io/nubimetrics-challenge/#/`
 
-## Code scaffolding
+## Descarga del código y despliegue de la app
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1- Instalar NodeJS en su ultima versión `https://nodejs.org/es/`
+2- Instalar o actualizar NPM. `npm install -g npm@latest`
+3- Borrar la cache de NPM: `npm cache clean --force`
+4- Instalar la última versión de Angular CLI para instalar Angular 8 
+`npm install -g @angular/cli@latest`
+5- Clonar el proyecto Nubimetrics-challenge 
+`git clone https://github.com/xxMorgothxx/nubimetrics-challenge.git`
+6- Ubicarse en el directorio del proyecto descargado y realizar un 
+`npm install`
+7- Desplegar la aplicación con `ng serve`
+8- Navegar a `http://localhost:4200/#/` para visualizar el sistema
 
-## Build
+## Caracteristicas del sistema - version v1.0.0
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1- Lista las publicaciones de MercadoLibre mediante un parámetro ingresado por el usuario
+2- Carga las primeras 1000 publicaciones de los resultados
+3- Visualiza la información las publicaciones en forma paginada
+4- Permite ordenar y filtrar los resultados por precio, cantidades vendidas, condición de la publicación y por rango de precios
+5- Despliega un modal con la información propia de una publicación
