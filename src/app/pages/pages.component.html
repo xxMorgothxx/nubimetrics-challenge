@@ -1,4 +1,18 @@
+<!--******************************************************************************* -->
+<!-- Contenedor principal -->
+<!--******************************************************************************* -->
 <nubimetrics-header></nubimetrics-header>
 <div class="content inner-content" #scrollMe>
     <router-outlet></router-outlet>
+
+    <go-top-button [animate]="true" [speed]="50" [acceleration]="2" [styles]="{
+        'width': '40px',
+        'eight': '50px',
+        'font-size': 'xx-large'
+        }">
+        <i class='fa fa-arrow-up'></i>
+    </go-top-button>
 </div>
+<!--******************************************************************************* -->
+<!-- END Contenedor principal -->
+<!--******************************************************************************* -->

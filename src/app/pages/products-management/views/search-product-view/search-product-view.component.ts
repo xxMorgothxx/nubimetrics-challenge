@@ -33,6 +33,7 @@ export class SearchProductViewComponent implements OnInit {
       this.searchProduct(sessionStorage.getItem('last_text')) :
       this.productService.searchProduct('gadgets geeks', 0, 50)
         .subscribe(response => {
+          this.searchText = 'Publicaciones geek';
           this.products = response.results;
           this.productsShort = this.products;
         });
@@ -44,6 +45,7 @@ export class SearchProductViewComponent implements OnInit {
    * @param product Nombre del producto
    */
   searchProduct(product: string) {
+    this.searchText = product;
     this.productService.getAllProducts(product)
       .subscribe(products => {
         this.products = products;

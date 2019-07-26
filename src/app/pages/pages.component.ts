@@ -1,17 +1,10 @@
-import { Component, OnInit, HostListener, ViewChild, ElementRef, AfterViewChecked, OnChanges } from '@angular/core';
-import { fromEvent } from 'rxjs';
-
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'nubimetrics-pages',
   templateUrl: './pages.component.html',
   styleUrls: ['./pages.component.scss']
 })
-export class PagesComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+export class PagesComponent {
 
 }

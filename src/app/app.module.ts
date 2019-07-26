@@ -13,6 +13,7 @@ registerLocaleData(localeEs, 'es-AR');
 import { ToastrModule } from "ngx-toastr";
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {GoTopButtonModule} from 'ng2-go-top-button';
 
 // Own modules
 import { CoreModule } from '@core-nubimetrics/core.module';
@@ -33,6 +34,7 @@ import { ProductModalComponent } from '@products-nbm-nubimetrics/components/moda
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    GoTopButtonModule,
     NgbModule,
     LoadingBarHttpClientModule,
     ToastrModule.forRoot({

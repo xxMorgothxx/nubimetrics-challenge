@@ -8,3 +8,11 @@
     right:0;  
     min-height: calc(100% - (#{$header-height} + #{$inner-content-padding}*2 + 75px));
 }
+
+.custom-class {
+    position: fixed;
+    background-color: $background-color;
+    border-color: red;
+    height: 30px;
+    width: 30px;
+}
