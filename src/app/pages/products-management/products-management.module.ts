@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 // Own modules
 import { ProductsManagementRoutingModule } from './products-management.routing';
 import { ProductsNbmModule } from 'src/app/shared/resources/products-nbm/products-nbm.module';
@@ -21,7 +23,8 @@ import { ProductsListComponent } from './components/lists/products-list/products
     CommonModule,
     ProductsManagementRoutingModule,
     ProductsNbmModule,
-    FormsNbmModule
+    FormsNbmModule,
+    NgbModule
   ]
 })
 export class ProductsManagementModule { }

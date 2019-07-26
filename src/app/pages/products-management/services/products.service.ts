@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 // Rxjs
-import { Observable } from 'rxjs';
-import { map } from "rxjs/operators";
+import { Observable, of } from 'rxjs';
+import { map, concatMap, expand, toArray } from "rxjs/operators";
+import { EMPTY } from 'rxjs';
 
 // Models
 import { Product } from '@products-nubimetrics/models/product.model';
@@ -28,9 +29,26 @@ export class ProductsService {
    * @param offset Posición del primero elemento
    * @param limit Número de elementos por página
    */
-  searchProduct(text: string, offset: number, limit: number): Observable<Product[]> {
+  searchProduct(text: string, offset: number, limit: number): Observable<ProductResponse> {
     return this.http.get<ProductResponse>(`${URLs.sites}/search?q=${text}&offset=${offset}&limit=${limit}`)
-      .pipe(map(response => response.results));
+      .pipe(map(response => response));
+  }
+
+  /**
+   * Devuelve todos los productos de acuerdo al texto ingresado por el usuario
+   * @param text Producto a buscar
+   */
+  getAllProducts(text: string): Observable<Product[]> {
+    return this.searchProduct(text, 0, 50).pipe(
+      expand((response: ProductResponse) =>
+        response.paging.offset < 1000 && response.paging.offset < response.paging.total ?
+          this.searchProduct(text, response.paging.offset + 50, 50) :
+          EMPTY
+      ),
+      concatMap((response: ProductResponse) => response.results),
+      toArray()
+    );
+
   }
 
   /**

@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+// Models
 import { Product } from '@products-nubimetrics/models/product.model';
 
 @Component({
@@ -6,13 +8,9 @@ import { Product } from '@products-nubimetrics/models/product.model';
   templateUrl: './products-list.component.html',
   styleUrls: ['./products-list.component.scss']
 })
-export class ProductsListComponent implements OnInit {
-
+export class ProductsListComponent {
+  page = 4;
+  pageSize = 20;
   @Input() products: Product[] = [];
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

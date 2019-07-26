@@ -2,16 +2,13 @@
 <!-- Listado de los productos referentes a la búsqueda del usuario -->
 <!--******************************************************************************* -->
 <div class="card-columns pt-10">
-  <div *ngFor="let product of products">
+  <div *ngFor="let product of products | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
     <nubimetrics-product-card [product]="product"></nubimetrics-product-card>
   </div>
 </div>
-<div *ngIf="!products.length" class="alert alert-info text-center" role="alert">
-  <h3 class="font-title">No se encontraron resultados que coincidan con su búsqueda</h3>
-  <div class="pt-10">
-    <p>Verifica que las palabras ingresadas estén escritas correctamente</p>
-  </div>
-</div>
+<ngb-pagination *ngIf="products.length" class="d-flex justify-content-center" [(page)]="page" [pageSize]="pageSize"
+  [collectionSize]="products.length" [maxSize]="5" [rotate]="true" [boundaryLinks]="true">
+</ngb-pagination>
 <!--******************************************************************************* -->
 <!-- END Listado de los productos referentes a la búsqueda del usuario -->
 <!--******************************************************************************* -->

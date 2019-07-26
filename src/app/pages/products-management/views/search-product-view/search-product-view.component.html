@@ -3,6 +3,12 @@
 <!--******************************************************************************* -->
 <nubimetrics-search-input-form placeholder="Buscar productos de Mercado Libre..." (text)="searchProduct($event)"></nubimetrics-search-input-form>
 <nubimetrics-products-list [products]="products"></nubimetrics-products-list>
+<div *ngIf="showNotResults" class="alert alert-info text-center" role="alert">
+    <h3 class="font-title">No se encontraron resultados que coincidan con su búsqueda</h3>
+    <div class="pt-10">
+        <p>Verifica que las palabras ingresadas estén escritas correctamente</p>
+    </div>
+</div>
 <!--******************************************************************************* -->
 <!-- END Página para la búsqueda de productos de mercado libre -->
 <!--******************************************************************************* -->
