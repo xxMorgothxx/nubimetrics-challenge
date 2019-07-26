@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild, ElementRef, AfterViewChecked, OnChanges } from '@angular/core';
+import { fromEvent } from 'rxjs';
+
 
 @Component({
   selector: 'nubimetrics-pages',

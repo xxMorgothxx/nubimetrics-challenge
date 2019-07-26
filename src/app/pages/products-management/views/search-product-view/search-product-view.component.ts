@@ -19,7 +19,7 @@ export class SearchProductViewComponent implements OnInit {
   products: Product[] = [];
   productsShort: Product[] = [];
   showNotResults = false;
-  searchText = sessionStorage.getItem('last_text');
+  searchText = sessionStorage.getItem('last_text') || 'Publicaciones geek';
 
   pageSize = 20;
 
@@ -32,7 +32,10 @@ export class SearchProductViewComponent implements OnInit {
     (sessionStorage.getItem('last_text')) ?
       this.searchProduct(sessionStorage.getItem('last_text')) :
       this.productService.searchProduct('gadgets geeks', 0, 50)
-        .subscribe(response => this.products = response.results);
+        .subscribe(response => {
+          this.products = response.results;
+          this.productsShort = this.products;
+        });
 
   }
 
